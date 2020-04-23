@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "courier new", monospace;
+}
+
+.App {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.1)
+  );
+  padding: 25px;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: 70px;
+  text-align: center;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+}
+
+.search-box .search-bar {
+  display: block;
+  width: 250px;
+  padding: 15px;
+
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 16px 16px 16px 16px;
+  margin: 200px auto auto auto;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.75);
+
+  color: #313131;
+  font-size: 20px;
+
+  transition: 0.4s ease;
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+}
