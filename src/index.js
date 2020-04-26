@@ -7,7 +7,6 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <title>Weather 2.0</title>
   </React.StrictMode>,
   document.getElementById("root")
 );

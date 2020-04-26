@@ -11,7 +11,40 @@ body {
 .App {
   background-image: url("./assets/background.jpg");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
+  transition: 1.5s ease-out;
+}
+
+.App.veryhot {
+  background-image: url("./assets/veryhot.jpg");
+}
+
+.App.hot {
+  background-image: url("./assets/hot.jpg");
+}
+
+.App.warm {
+  background-image: url("./assets/warm.jpg");
+}
+
+.App.tempid {
+  background-image: url("./assets/tempid.jpg");
+}
+
+.App.cool {
+  background-image: url("./assets/cool.jpg");
+}
+
+.App.cold {
+  background-image: url("./assets/cold.jpg");
+}
+
+.App.snowing {
+  background-image: url("./assets/snowing.jpg");
+}
+
+.App.frozen {
+  background-image: url("./assets/frozen.jpg");
 }
 
 main {
@@ -19,7 +52,7 @@ main {
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.1)
+    rgba(0, 0, 0, 0)
   );
   padding: 25px;
 }

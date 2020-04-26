@@ -6,24 +6,44 @@ const api = {
 };
 
 function App() {
-  // const [query, setQuery] = useState("");
-  // const [weather, setWeather] = useState({});
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState({});
 
-  // const search = (evt) => {
-  //   if (evt.key === "Enter") {
-  //     fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         setQuery("");
-  //         setWeather(result);
-  //       });
-  //   }
-  // };
+  const search = (evt) => {
+    if (evt.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setQuery("");
+          setWeather(result);
+        });
+    }
+  };
 
-  // const dateTime = new Date().toLocaleDateString();
+  const weatherBackground = function () {
+    return typeof weather.main != "undefined"
+      ? weather.main.temp > 90
+        ? "App veryhot"
+        : weather.main.temp > 80 && weather.main.temp < 90
+        ? "App hot"
+        : weather.main.temp > 70 && weather.main.temp < 80
+        ? "App warm"
+        : weather.main.temp > 60 && weather.main.temp < 70
+        ? "App tempid"
+        : weather.main.temp > 50 && weather.main.temp < 60
+        ? "App cool"
+        : weather.main.temp > 40 && weather.main.temp < 50
+        ? "App cold"
+        : weather.main.temp > 30 && weather.main.temp < 40
+        ? "App snowing"
+        : weather.main.temp < 30
+        ? "App frozen"
+        : "App"
+      : "App";
+  };
 
   return (
-    <div className="App">
+    <div className={weatherBackground()}>
       <main>
         <div className="heading">What's the weather like?</div>
         <div className="search-box">
@@ -31,15 +51,13 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Find out..."
-            // onChange={(e) => setQuery(e.target.value)}
-            // value={query}
-            // onKeyPress={search}
+            onFocus={(e) => (e.target.placeholder = "city")}
+            onBlur={(e) => (e.target.placeholder = "Find out...")}
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
           ></input>
         </div>
-        {/* <div className="today">{this.state.dateTime}</div> */}
-        <div className="city">Charlotte</div>
-        <div className="temp">something°</div>
-        <dic className="descript">Looking gloomy</dic>
       </main>
     </div>
   );
